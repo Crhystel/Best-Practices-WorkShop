@@ -8,7 +8,7 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     @if(!string.IsNullOrEmpty(ViewBag.ErrorMessage)) {
-        @ViewBag.ErrorMessage
+    @ViewBag.ErrorMessage
     }
     <table class="table">
         <thead>
@@ -20,33 +20,35 @@
         <th>Gallons</th>
         <th>Status</th>
         <th>Actions</th>
+        <th>Año</th> <!-- new -->
         </thead>
         @foreach (var vehicle in Model.Vehicles)
         {
-    <tr>
-        <td>
-            @vehicle.ID
-        </td>
-        <td>
-            @(vehicle.GetType().Name)
-        </td>
-        <td>
-            @vehicle.Brand
-        </td>
-        <td>
-            @vehicle.Model
-        </td>
-        <td>
-            @vehicle.Color
-        </td>
-        <td>
-            @vehicle.Gas.ToString("N1")
-        </td>
-        <td>
-            @(vehicle.IsEngineOn() ? "Encendido": "Apagado")
-        </td>
-        <td>
-            @if (vehicle.IsEngineOn())
+        <tr>
+            <td>
+                @vehicle.ID
+            </td>
+            <td>
+                @(vehicle.GetType().Name)
+            </td>
+            <td>
+                @vehicle.Brand
+            </td>
+            <td>
+                @vehicle.Model
+            </td>
+            <td>@vehicle.Year</td> <!-- new -->
+            <td>
+                @vehicle.Color
+            </td>
+            <td>
+                @vehicle.Gas.ToString("N1")
+            </td>
+            <td>
+                @(vehicle.IsEngineOn() ? "Encendido": "Apagado")
+            </td>
+            <td>
+                @if (vehicle.IsEngineOn())
             {
                 <a href="/Home/StopEngine?id=@vehicle.ID">Stop Engine</a> }
             else
@@ -54,13 +56,14 @@
                 <a href="/Home/StartEngine?id=@vehicle.ID">Start Engine</a>
             }
 
-            <a href="/Home/AddGas?id=@vehicle.ID">LLenar tanque</a>
+                <a href="/Home/AddGas?id=@vehicle.ID">LLenar tanque</a>
 
-        </td>
-    </tr>
+            </td>
+        </tr>
         }
     </table>
 
     <a href="/Home/AddMustang">Add Mustang</a>
     <a href="/Home/AddExplorer">Add Explorer</a>
+    <a href="/Home/AddEscape">Add Escape</a><!-- new -->
 </div>

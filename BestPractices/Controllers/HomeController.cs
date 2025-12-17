@@ -17,7 +17,7 @@ namespace Best_Practices.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private readonly IVehicleRepository _vehicleRepository;
-
+        //dependency injection of the repository
         public HomeController(IVehicleRepository vehicleRepository, ILogger<HomeController> logger)
         {
             _vehicleRepository = vehicleRepository;
@@ -49,6 +49,14 @@ namespace Best_Practices.Controllers
             var factory = new FordExplorerCreator();
             var vehicle = factory.Create();
             _vehicleRepository.AddVehicle(vehicle);
+            return Redirect("/");
+        }
+        //New method
+        [HttpGet]
+        public IActionResult AddEscape()
+        {
+            var factory = new FordEscapeCreator();
+            _vehicleRepository.AddVehicle(factory.Create());
             return Redirect("/");
         }
 
