@@ -12,7 +12,10 @@ namespace Best_Practices.Infraestructure.DependencyInjection
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IVehicleRepository, MyVehiclesRepository>();
+            //Changed from AddTransient to AddSingleton.
+            // Ensures the repository instance stays alive for the entire application lifetime,
+            // acting as a consistent in-memory database.
+            services.AddSingleton<IVehicleRepository, MyVehiclesRepository>();
         }
     }
 }

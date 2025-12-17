@@ -49,7 +49,7 @@ Selecciona metodologías integrales para solucionar el problema: En el documento
 
 Diseña una propuesta técnica para el problema considerando los recursos y restricciones del proyecto: 
 
-Prototipo de la solución aplicado el patrón de diseño, compartido en GIT. 
+Prototipo de la solución aplicado el patrón de diseño, compartido en GIT 
 
  
 
