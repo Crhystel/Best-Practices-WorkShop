@@ -11,8 +11,8 @@ namespace Best_Practices.Infraestructure.Factories
     {
         public override Vehicle Create()
         {
-            var builder = new CarBuilder();
-            return builder.Build();
+            //using the CarBuilder to create a Ford Mustang with default properties
+            return new CarBuilder().Build();
         }
     }
 }
