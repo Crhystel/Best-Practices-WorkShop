@@ -8,31 +8,38 @@ namespace Best_Practices.ModelBuilders
 {
     public class CarBuilder
     {
-        public string Brand = "Ford";
-        public string Model = "Mustang";
-        public string Color = "Red";
+        public string _brand = "Ford";
+        public string _model = "Mustang";
+        public string _color = "Red";
+        //Adding year property, using datetime to get current year as default.
+        private int _year = DateTime.Now.Year;
 
         public CarBuilder SetBrand(string brand)
         {
-            Brand = brand;
+            _brand = brand;
             return this;
         }
 
         public CarBuilder SetModel(string model)
         {
-            Model = model;
+            _model = model;
             return this;
         }
 
         public CarBuilder SetColor(string color)
         {
-            Color = color;
+            _color = color;
             return this;
         }
-        
+        public CarBuilder SetYear(int year)
+        {
+            _year = year;
+            return this;
+        }
+        //if 20 new properties are added, we only need to change this Builder
         public Car Build()
         {
-            return new Car(Color, Brand, Model);
+            return new Car(_color, _brand,_model,_year);
         }
     }
 }
